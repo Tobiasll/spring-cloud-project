@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: user-service-client
+  cloud:
+    config:
+      discovery:
+        service-id: config-server
+        enabled: true
+      name: ${spring.application.name}, server-info, user-info
+      label: master
+      profile: default
+
+eureka:
+  client:
+    service-url:
+      defaultZone : "http://localhost:8080/eureka"

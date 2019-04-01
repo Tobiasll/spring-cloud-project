@@ -1,0 +1,21 @@
+server:
+  port: 8082
+
+management:
+  security:
+    enabled: false
+
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+
+spring:
+  sleuth:
+    sampler:
+      percentage: 1

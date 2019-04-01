@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: "${user.dir}/config-server/src/main/resources/configs"
+  sleuth:
+    sampler:
+      percentage: 1
+server:
+  port: 8081
+management:
+  security:
+    enabled: false
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone : "http://localhost:8080/eureka"
+
+

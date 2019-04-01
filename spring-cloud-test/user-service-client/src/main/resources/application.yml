@@ -1,0 +1,27 @@
+server:
+  port: 8083
+spring:
+  kafka:
+    bootstrap-servers: ${kafka-server}
+    consumer:
+      group-id: my-group
+      clientId: user-service-client
+
+    producer:
+      value-serializer: com.tobias.client.serializer.ObjectSerializer
+  sleuth:
+    sampler:
+      percentage: 1
+  cloud:
+    stream:
+      bindings:
+        user-message-output:
+          destination: users
+    bus:
+      trace:
+        enabled: true
+#  zipkin:
+#    base-url: ${zipkin-server}
+management:
+  security:
+    enabled: false
